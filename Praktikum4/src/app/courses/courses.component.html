@@ -1,0 +1,39 @@
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let Course of Courses1">
+      <td>{{ Course.id }}</td>
+      <td>{{ Course.name }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>{{binding}}</h2>
+<h2 [textContent]='binding'></h2>
+
+<img src="{{imageUrl}}"/>
+<img [src]="imageUrl"/>
+
+<table>
+  <tr>
+    <td [attr.colspan]='colSpan'></td>
+  </tr>
+</table>
+
+
+<!-- <input type="text" #nama (keyup.enter)="onKeyUp(nama.value)">  -->
+<!-- <input type ="text" [value]='nama' (keyup.enter)="nama= $event.target.value; onKeyUp()"> -->
+<input type="text" [(ngModel)]="nama" (keyup.enter)="onKeyUp()">
+
+<button type="button" class="btn btn-primary" [style.backgroundColor]="isActive?'blue':'white'">Style</button>
+
+<button type="button" class="btn btn-default" (click)="onSave($event)">button</button>
+
+<div (click)="onDivClick($event)">
+  <button type="button" class="btn btn-danger" (click)="onSave($event)">button</button>
+</div>

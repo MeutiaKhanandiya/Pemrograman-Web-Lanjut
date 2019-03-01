@@ -1,0 +1,24 @@
+<p>
+  course works!
+</p>
+
+<p>
+  <!-- {{ "judul="+ title }} -->
+  {{ getTitle() }}
+</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let Course of Courses">
+      <td>{{ Course.id }}</td>
+      <td>{{ Course.name }}</td>
+    </tr>
+  </tbody>
+</table>
+
