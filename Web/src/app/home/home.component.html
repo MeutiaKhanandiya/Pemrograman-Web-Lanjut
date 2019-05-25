@@ -1,0 +1,24 @@
+<app-navbar></app-navbar>
+<br>
+<div style=text-align:center>
+  <h2>
+    My Friends App!
+  </h2>
+  <img src="assets/IMG_8596.jpg" alt="home.jpg" style="max-width: 20%">
+  <br>
+  <br>
+</div>
+<div class="col-md-4 offset-md-4">
+    <form class="form-signin" class="form-group" #f="ngForm" (ngSubmit)="login(f.value)">
+      <label >Username</label>
+      <label for="inputEmail" class="sr-only">Username</label>
+      <input type="email" id="inputEmail" name="email" ngModel class="form-control" placeholder="Username" required autofocus>
+      <br>
+      <label>Password</label>
+      <label for="inputPassword" class="sr-only">Password</label>
+      <input type="password" id="inputPassword" name="password" ngModel class="form-control" placeholder="Password" required>
+      <br>
+      <div *ngIf="invalidLogin" class="alert alert-danger">Invalid username and/or password.</div>
+      <button class="btn btn-lg btn-primary btn-block btn-success" type="submit">Sign in</button>
+    </form>
+  </div>

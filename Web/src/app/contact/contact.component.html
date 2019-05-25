@@ -1,0 +1,78 @@
+<app-navbar></app-navbar>
+<div class="text-center">
+  <h2>Contact Us</h2>
+</div>
+
+<hr>
+<div class="container col10">
+<form #form="ngForm" (ngSubmit)="submit(form.value)">
+  <div class="form-group">
+    <label for="name">Your Name</label>
+    <input
+      type="text"
+      id="name"
+      class="form-control"
+      required
+      minlength="3"
+      maxlength="10"
+      ngModel
+      #firstName="ngModel"
+      (change)="log(firstName)"
+      name="name"
+    />
+    <div
+      class="alert alert-danger"
+      *ngIf="firstName.touched && !firstName.valid"
+    >
+     
+  </div>
+  
+  <div class="form-group">
+      <label for="email">Your Email:</label>
+      <input
+        type="text"
+        id="email"
+        class="form-control"
+        required
+        email
+        ngModel
+        #emailUser="ngModel"
+        (change)="log(emailUser)"
+        name="email"
+      />
+      <div
+        class="alert alert-danger"
+        *ngIf="emailUser.touched && !emailUser.valid"
+      >
+        <div *ngIf="emailUser.errors['required']">Email Harus Diisi</div>
+        <div *ngIf="emailUser.errors['email']">
+          Harus Mengandung unsur email
+        </div>
+      </div>
+    </div>
+  <div class="form-group">
+    <label for="message"> Your Message: </label>
+    <textarea
+      class="form-control"
+      rows="5"
+      id="message"
+      ngModel
+      name="message"
+    ></textarea>
+  </div>
+<div class="form-group">  
+  <button type="submit" [disabled]="!form.valid" class="btn btn-primary" (click) ="submit()">
+      Submit
+    </button>
+  </div>
+  
+<!-- menampilkan data -->
+<div *ngIf="yourData">
+<h1>Your Data</h1>
+<h3>Name : {{form.value.name|json}}</h3>
+<h3>Email : {{form.value.email|json}}</h3>
+<h3>Message : {{form.value.message|json}}</h3>
+</div>
+
+
+</div>
